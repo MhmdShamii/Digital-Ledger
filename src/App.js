@@ -1,8 +1,13 @@
+import { BrowserRouter } from "react-router-dom";
+import NavBar from "./components/NavBar";
+
 function App() {
   return (
-    <h1 className="text-3xl font-bold text-red-600 bg-blue-200">
-      Tailwind is working!
-    </h1>
+    <BrowserRouter>
+      <div className="flex justify-center w-full h-full ">
+        <NavBar />
+      </div>
+    </BrowserRouter>
   );
 }
 
