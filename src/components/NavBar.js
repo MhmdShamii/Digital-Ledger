@@ -17,21 +17,37 @@ export default function NavBar() {
       <div className="flex gap-3 justify-center items-center">
         <Link
           to="/"
-          className={selected === "home" ? styles.activeLink : styles.link}
+          className={
+            window.location.pathname.includes("/") &&
+            !(
+              window.location.pathname.includes("/users") ||
+              window.location.pathname.includes("/products")
+            )
+              ? styles.activeLink
+              : styles.link
+          }
           onClick={() => setSelected("home")}
         >
           Home
         </Link>
         <Link
           to="/users"
-          className={selected === "users" ? styles.activeLink : styles.link}
+          className={
+            window.location.pathname.includes("/users")
+              ? styles.activeLink
+              : styles.link
+          }
           onClick={() => setSelected("users")}
         >
           Users
         </Link>
         <Link
           to="/products"
-          className={selected === "products" ? styles.activeLink : styles.link}
+          className={
+            window.location.pathname.includes("/products")
+              ? styles.activeLink
+              : styles.link
+          }
           onClick={() => setSelected("products")}
         >
           Products
