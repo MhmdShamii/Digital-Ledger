@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
-import Products from "./components/Products";
+import Products from "./components/ProductsPage/Products";
 import Users from "./components/usersPage/Users";
 import { useState } from "react";
 
@@ -61,22 +61,69 @@ export const users = [
 ];
 
 export const products = [
-  { id: 1, name: "Chips", price: 5 },
-  { id: 2, name: "Soda", price: 3.5 },
-  { id: 3, name: "Chocolate Bar", price: 4 },
-  { id: 4, name: "Hubbly Bubbly", price: 15 },
-  { id: 5, name: "3 Gaming Hours", price: 14 },
-  { id: 6, name: "5 Gaming Hours", price: 20 },
+  {
+    id: 1,
+    name: "Chips",
+    price: 5,
+    type: "snacks",
+    img: "https://images.unsplash.com/photo-1585238341988-52a97f1901f0?w=400",
+  },
+  {
+    id: 2,
+    name: "Soda",
+    price: 3.5,
+    type: "snacks",
+    img: "https://images.unsplash.com/photo-1581579185169-947f2ef01f3b?w=400",
+  },
+  {
+    id: 3,
+    name: "Chocolate Bar",
+    price: 4,
+    type: "snacks",
+    img: "https://images.unsplash.com/photo-1588167101361-04a94f50c4c7?w=400",
+  },
+  {
+    id: 4,
+    name: "Hubbly Bubbly",
+    price: 15,
+    type: "hubbly",
+    img: "https://images.unsplash.com/photo-1598550476439-6f3d03438e2b?w=400",
+  },
+  {
+    id: 5,
+    name: "3 Gaming Hours",
+    price: 14,
+    type: "play",
+    img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400",
+  },
+  {
+    id: 6,
+    name: "5 Gaming Hours",
+    price: 20,
+    type: "play",
+    img: "https://images.unsplash.com/photo-1607082349983-cd62bc82f333?w=400",
+  },
 ];
 
 function App() {
   const [userArr, setUserArr] = useState(users);
+  const [productsArr, setProductsArr] = useState(products);
 
   function addUser(user) {
     setUserArr((prev) => [...prev, user]);
   }
   function updateUser(updated) {
     setUserArr((prev) => prev.map((u) => (u.id === updated.id ? updated : u)));
+  }
+
+  function updateProduct(updated) {
+    setProductsArr((prev) =>
+      prev.map((p) => (p.id === updated.id ? updated : p))
+    );
+  }
+
+  function addProduct(product) {
+    setProductsArr((prev) => [...prev, product]);
   }
 
   return (
@@ -96,7 +143,16 @@ function App() {
               />
             }
           />
-          <Route path="/products" element={<Products products={products} />} />
+          <Route
+            path="/products"
+            element={
+              <Products
+                products={productsArr}
+                updateProduct={updateProduct}
+                addProduct={addProduct}
+              />
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>

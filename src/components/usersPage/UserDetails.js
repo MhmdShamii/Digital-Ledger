@@ -37,7 +37,8 @@ export default function UserDetails({ user, products }) {
           )}
         </div>
       </div>
-      <div className="">
+
+      <div>
         <h3 className="text-lg font-semibold mb-2">Items History</h3>
 
         {user.history.length === 0 ? (
@@ -49,6 +50,7 @@ export default function UserDetails({ user, products }) {
 
               const name = product?.name ?? "Unknown Product";
               const price = product?.price ?? 0;
+              const img = product?.img ?? null;
               const subtotal = price * h.qty;
 
               return (
@@ -56,11 +58,21 @@ export default function UserDetails({ user, products }) {
                   key={`${h.productId}-${h.date}-${index}`}
                   className="p-3 rounded-lg border border-gray-200 flex items-center justify-between hover:bg-gray-50 transition"
                 >
-                  <div>
-                    <p className="font-semibold">{name}</p>
-                    <p className="text-sm text-gray-500">
-                      Qty: {h.qty} • {h.date}
-                    </p>
+                  <div className="flex items-center gap-3">
+                    {img && (
+                      <img
+                        src={img}
+                        className="w-12 h-12 object-cover rounded-lg border"
+                        alt=""
+                      />
+                    )}
+
+                    <div>
+                      <p className="font-semibold">{name}</p>
+                      <p className="text-sm text-gray-500">
+                        Qty: {h.qty} • {h.date}
+                      </p>
+                    </div>
                   </div>
 
                   <div className="text-right">

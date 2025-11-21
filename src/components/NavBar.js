@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 
+//eslint-disable-next-line
 export default function NavBar() {
+  //eslint-disable-next-line
   const [selected, setSelected] = useState("home");
 
   const styles = {
