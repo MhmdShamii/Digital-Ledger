@@ -28,6 +28,7 @@ export default function ProductEditor({ product, updateProduct }) {
           <img
             src={form.img}
             className="w-24 h-24 object-cover rounded-lg border"
+            alt={form.name}
           />
         )}
 

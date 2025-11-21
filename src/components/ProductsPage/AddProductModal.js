@@ -41,6 +41,7 @@ export default function AddProductModal({ isOpen, onClose, onAdd }) {
           <img
             src={form.img}
             className="w-24 h-24 object-cover rounded-lg border"
+            alt={form.name}
           />
         )}
 

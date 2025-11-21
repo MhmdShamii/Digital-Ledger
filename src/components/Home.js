@@ -163,6 +163,7 @@ export default function Home({ products, users, updateUser }) {
                 <img
                   src={p.img}
                   className="w-24 h-24 object-cover rounded-lg mb-2"
+                  alt={p.name}
                 />
               )}
               <p className="font-bold">{p.name}</p>
@@ -184,7 +185,11 @@ export default function Home({ products, users, updateUser }) {
             >
               <div className="flex items-center gap-2">
                 {i.img && (
-                  <img src={i.img} className="w-10 h-10 rounded object-cover" />
+                  <img
+                    src={i.img}
+                    className="w-10 h-10 rounded object-cover"
+                    alt={i.name}
+                  />
                 )}
                 <div>
                   <p className="font-semibold">{i.name}</p>

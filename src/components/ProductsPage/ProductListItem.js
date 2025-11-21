@@ -7,7 +7,11 @@ export default function ProductListItem({ product, selected, select }) {
       }`}
     >
       {product.img && (
-        <img src={product.img} className="w-12 h-12 object-cover rounded-lg" />
+        <img
+          src={product.img}
+          alt={product.name}
+          className="w-12 h-12 object-cover rounded-lg"
+        />
       )}
       <div>
         <p className="font-semibold">{product.name}</p>
